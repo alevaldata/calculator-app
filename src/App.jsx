@@ -4,26 +4,30 @@ function App() {
   const [displayValue, setDisplayValue] = useState(0);
 
   function handleInput(value) {
-    if (displayValue === 0) {
+    if (!displayValue) {
       setDisplayValue(value);
     } else if (displayValue) {
-      let newDisplayValue = displayValue;
-      setDisplayValue((newDisplayValue += value));
+      let newDisplayValue = displayValue + value;
+      setDisplayValue(newDisplayValue);
     }
   }
 
-  function handleResult(e) {
-    e.preventDefault();
+  function handleResult() {
     let result = eval(displayValue);
-    try {
-      setDisplayValue(result);
-    } catch (Error) {
-      setDisplayValue("Error");
-    }
+    setDisplayValue(result);
   }
 
   function handleClear() {
     setDisplayValue(0);
+  }
+
+  function handleDel() {
+    if (displayValue.length == 1) {
+      setDisplayValue(0);
+    } else {
+      let newDisplayValue = displayValue.slice(0, -1);
+      setDisplayValue(newDisplayValue);
+    }
   }
 
   return (
@@ -37,25 +41,26 @@ function App() {
             value={displayValue}
             readOnly
           />
-          <button onClick={handleResult}>=</button>
         </div>
         <div className="inputs">
-          <button onClick={() => handleInput("1")}>1</button>
-          <button onClick={() => handleInput("2")}>2</button>
-          <button onClick={() => handleInput("3")}>3</button>
+          <button onClick={() => handleInput("7")}>7</button>
+          <button onClick={() => handleInput("8")}>8</button>
+          <button onClick={() => handleInput("9")}>9</button>
           <button onClick={() => handleInput("+")}>+</button>
           <button onClick={() => handleInput("4")}>4</button>
           <button onClick={() => handleInput("5")}>5</button>
           <button onClick={() => handleInput("6")}>6</button>
           <button onClick={() => handleInput("-")}>-</button>
-          <button onClick={() => handleInput("7")}>7</button>
-          <button onClick={() => handleInput("8")}>8</button>
-          <button onClick={() => handleInput("9")}>9</button>
+          <button onClick={() => handleInput("1")}>1</button>
+          <button onClick={() => handleInput("2")}>2</button>
+          <button onClick={() => handleInput("3")}>3</button>
           <button onClick={() => handleInput("*")}>*</button>
           <button onClick={() => handleInput(".")}>.</button>
           <button onClick={() => handleInput("0")}>0</button>
-          <button onClick={handleClear}>C</button>
+          <button onClick={handleDel}>del</button>
           <button onClick={() => handleInput("/")}>/</button>
+          <button className="result-btn" onClick={handleResult}>=</button>
+          <button onClick={handleClear}>C</button>
         </div>
       </div>
     </>

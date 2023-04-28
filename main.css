@@ -1,68 +1,75 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 body {
-    text-align: center;
-    font-family: Verdana, sans-serif;
-    background-color: lightslategray;
+  text-align: center;
+  font-family: Verdana, sans-serif;
+  background-color: lightslategray;
 }
 
 .calculator {
-    border: 1px solid;
-    border-bottom: 4px solid;
-    border-right: 4px solid;
-    border-radius: 10px;
-    width: 360px;
-    height: 500px;
-    padding: 15px;
-    margin: 0 auto;
-    background-color: darkolivegreen;
+  border-bottom: 6px rgb(30, 31, 35) solid;
+  border-radius: 10px;
+  width: 360px;
+  height: fit-content;
+  padding: 40px;
+  margin: 0 auto;
+  background-color: rgb(54, 55, 61);
 }
 
 .display {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    padding: 2px;
-    width: 100%;
-    height: 20%;
-    align-items: center;
-    font-size: large;
+  width: 100%;
+  height: 70px;
+  margin-bottom: 30px;
 }
 
 .display input {
-    text-align: right;
-    border: unset;
-    border-radius: 10px;
-    height: 92%;
-    width: 99%;
-    margin-bottom: 2px;
-    font-size: larger;
-    font-family: Verdana, sans-serif;
+  text-align: right;
+  border: unset;
+  height: 100%;
+  width: 100%;
+  font-size: 1.5em;
+  font-family: monospace, system-ui, sans-serif;
+  padding: 10px;
+  background: linear-gradient(
+      90deg,
+      rgba(113, 120, 96, 0.6),
+      transparent 2%,
+      transparent 98%,
+      rgba(113, 120, 96, 0.6)
+    ),
+    linear-gradient(
+      rgba(113, 120, 96),
+      rgb(218, 230, 187) 8%,
+      rgb(218, 230, 187) 92%,
+      rgba(113, 120, 96)
+    );
 }
 
 .inputs {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    width: 100%;
-    height: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.result-btn {
+  grid-column: 1 / 4;
 }
 
 button {
-    border: unset;
-    border-bottom: solid;
-    border-right: solid;
-    border-radius: 10px;
-    margin: 2px;
-    width: 95%;
-    height: 85px;
-    font-size: x-large;
-    font-weight: bold;
-    background-color: rgb(203, 203, 203);
-    font-family: Verdana, sans-serif;
-    cursor: pointer;
+  border: unset;
+  border-bottom: 5px rgb(98, 98, 98) solid;
+  border-radius: 8px;
+  height: 70px;
+  font-size: 1.3em;
+  background-color: rgb(140, 140, 140);
+  font-family: Verdana, sans-serif;
+  cursor: pointer;
+  user-select: none;
+  color: aliceblue;
 }
 
 button:hover {
-    background-color: rgb(226, 226, 226);
+  background-color: rgb(156, 156, 156);
 }
